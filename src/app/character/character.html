@@ -1,0 +1,26 @@
+<section id="sheet">
+  <header>
+    <h2>
+      <p>Character sheet</p>
+    </h2>
+    <menu>
+      <button>Add Character</button>
+    </menu>
+  </header>
+
+  <ul>
+    <li>Name: {{ _name }}</li>
+    <li>Player: {{ character?.player }}</li>
+    <li>Age: {{ character?.age }}</li>
+    <li>Job: {{ character?.job }}</li>
+    <li id="liStats">
+      Stats: <br />
+      @for (s of character.stats; track $index) {
+
+      {{ s.statName }}
+      <b>{{ s.value }}</b>
+      <br />
+      }
+    </li>
+  </ul>
+</section>
