@@ -1,0 +1,17 @@
+<div class="actions">
+  <ul>
+    <li>Name: {{ Name }}</li>
+    <li>Player: {{ character.player }}</li>
+    <li>Age: {{ character.age }}</li>
+    <li>Job: {{ character.job }}</li>
+    <li id="liStats">
+      Stats: <br />
+      @for (s of character.stats; track $index) {
+      {{ s.statName }}
+      <b>{{ s.value }}</b>
+      <br />
+      }
+    </li>
+  </ul>
+  <button>Delete character</button>
+</div>

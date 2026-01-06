@@ -1,5 +1,5 @@
 <div>
-  <button (click)="onClick()">
+  <button [class.active]="selected" (click)="onClick()">
     <!-- <img src="assets/users/{{ selectedUser.avatar }}" alt="Avatar {{ selectedUser.id }}" /> -->
     <!-- <img [src]="'assets/users/' + selectedUser.avatar" [alt]="selectedUser.name" /> -->
     <!-- <img [src]="path" [alt]="selectedUser.name" /> -->

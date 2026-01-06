@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
 import { HeaderComponent } from './header/header';
-import { User } from './user/user';
+import { UserComponent } from './user/user';
 import { DUMMY_USERS } from './dummy-users';
-import { Character } from './character/character';
+import { CharacterComponent } from './character/character';
 // import { NgFor, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  imports: [HeaderComponent, User, Character],
+  imports: [HeaderComponent, UserComponent, CharacterComponent],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })
