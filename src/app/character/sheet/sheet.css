@@ -11,13 +11,11 @@ h2 {
 time {
   color: #3c2c50;
 }
-
-.actions {
-  text-align: right;
-  margin: 0;
+ul {
+  list-style-type: none;
 }
 
-.actions button {
+button {
   font: inherit;
   font-size: 0.9rem;
   cursor: pointer;
@@ -30,8 +28,8 @@ time {
   transition: all 0.3s ease;
 }
 
-.actions button:hover,
-.actions button:active {
+button:hover,
+button:active {
   background-color: #4a0774;
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
 }

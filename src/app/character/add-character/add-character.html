@@ -1,0 +1,60 @@
+<p>add-character works!</p>
+
+<ul>
+  <li>
+    <label for="nameCh">Name: </label>
+    <input type="text" id="nameCh" #Name />
+  </li>
+  <li>
+    <label for="ageCh">Age: </label>
+    <input type="number" id="ageCh" #Age />
+  </li>
+  <li>
+    <label for="jobCh">Job: </label>
+    <input type="text" id="jobCh" #Job />
+  </li>
+  <li>
+    <label for="strStat">Strength: </label>
+    <input type="number" id="strStat" #Str />
+  </li>
+  <li>
+    <label for="conStat">Constitution: </label>
+    <input type="number" id="conStat" #Con />
+  </li>
+  <li>
+    <label for="sizStat">Size: </label>
+    <input type="number" id="sizStat" #Siz />
+  </li>
+  <li>
+    <label for="dexStat">Dexterity: </label>
+    <input type="number" id="dexStat" #Dex />
+  </li>
+  <li>
+    <label for="appStat">Appearance: </label>
+    <input type="number" id="appStat" #App />
+  </li>
+  <li>
+    <label for="intStat">Intelligence: </label>
+    <input type="number" id="intStat" #Int />
+  </li>
+  <li>
+    <label for="powStat">Power: </label>
+    <input type="number" id="powStat" #Pow />
+  </li>
+  <li>
+    <label for="eduStat">Education: </label>
+    <input type="number" id="eduStat" #Edu />
+  </li>
+  <li>
+    <label for="speedStat">Speed: </label>
+    <input type="number" id="speedStat" #Speed />
+  </li>
+</ul>
+<!-- <button (click)="submitBtn({Name.value, player, Job.value,Age.value,{"con",  Con.value }})" type="submit"> -->
+
+<button
+  (click)="createCharacter(Name, Job, Age, Str, Con, Siz, Dex, App, Int, Pow, Edu, Speed)"
+  type="submit"
+>
+  Add Character!
+</button>

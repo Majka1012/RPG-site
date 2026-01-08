@@ -1,6 +1,5 @@
 export const DUMMY_CHARACTERS = [
   {
-    id: 1,
     name: 'Celest',
     player: 'Maja',
     job: 'photograph',
@@ -18,7 +17,6 @@ export const DUMMY_CHARACTERS = [
     ],
   },
   {
-    id: 2,
     name: 'Marie',
     player: 'Marta',
     job: 'nurse',
@@ -36,7 +34,6 @@ export const DUMMY_CHARACTERS = [
     ],
   },
   {
-    id: 3,
     name: 'Ricky',
     player: 'Daniel',
     job: 'security',
@@ -54,7 +51,6 @@ export const DUMMY_CHARACTERS = [
     ],
   },
   {
-    id: 4,
     name: 'Leopold',
     player: 'Zbychu',
     job: 'archeology',
@@ -72,7 +68,6 @@ export const DUMMY_CHARACTERS = [
     ],
   },
   {
-    id: 5,
     name: 'John',
     player: 'Janek',
     job: '-',

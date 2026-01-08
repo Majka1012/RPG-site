@@ -107,3 +107,10 @@ button:active,
   background-color: #9965dd;
   color: #150722;
 }
+
+.character {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: 0.5rem;
+}

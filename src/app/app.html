@@ -17,11 +17,11 @@
   <div>
     @if (selectedUser) {
     <!-- <app-character *ngIf="selectedUser; else fallback" ; [Name]="selectedUser!.name" /> -->
-    <app-character [Name]="selectedUser.character" />
+    <app-character [Name]="selectedUser.character" (deleteChar)="deleteCharacter($event)" />
 
     }@else {
     <!-- <ng-template #fallback> -->
-    <p id="fallback">Select a user to see their tasks!</p>
+    <p id="fallback">Select a user to see their character!</p>
     <!-- </ng-template> -->
     }
   </div>

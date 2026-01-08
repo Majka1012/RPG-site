@@ -1,5 +1,8 @@
 <div class="actions">
   <ul>
+    @if(Name===""){
+    <li>BRAK POSTACI</li>
+    }@else {
     <li>Name: {{ Name }}</li>
     <li>Player: {{ character.player }}</li>
     <li>Age: {{ character.age }}</li>
@@ -12,6 +15,7 @@
       <br />
       }
     </li>
+    }
   </ul>
-  <button>Delete character</button>
+  <button (click)="deleteCharacter()">Delete character</button>
 </div>

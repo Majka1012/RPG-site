@@ -4,8 +4,11 @@
       <p>Character sheet</p>
     </h2>
     <menu>
-      <button>Compare Characters</button>
+      <button (click)="addBtnClick()">Add Character</button>
     </menu>
   </header>
-  <app-sheet [Name]="_name" [character]="character" (deleteSheet)="onDelete($event)" />
+  <div id="character">
+    <app-sheet [Name]="_name" [character]="character" (deleteSheet)="onDelete($event)" />
+    <app-add-character [player]="_name" />
+  </div>
 </section>

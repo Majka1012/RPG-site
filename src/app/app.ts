@@ -21,4 +21,7 @@ export class App {
   showCharacter(id: string) {
     this.selectedUserId = id;
   }
+  deleteCharacter(name: string) {
+    this.users.find((user) => name === user.character)!.character = '';
+  }
 }
