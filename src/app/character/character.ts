@@ -12,26 +12,39 @@ import { AddCharacter } from './new-character/new-character';
 })
 export class CharacterComponent {
   // @Input() Name!: string;
-  _name!: string;
-  character!: Character;
+  playerName!: string;
+  character?: Character;
 
   showAddCharacter = false;
 
   addBtnClick() {
     this.showAddCharacter = true;
+    // console.log(this._name);
   }
   onCharacterCreated(character: Character) {
     this.showAddCharacter = false;
+    this.character = character;
+    this.playerName = character.player;
   }
   // character = DUMMY_CHARACTERS.find((user) => user.name === this.Name);
   @Input()
   set Name(value: string) {
-    this._name = value;
-    this.character = DUMMY_CHARACTERS.find((user) => user.name === this._name)!;
+    if (!value) {
+      this.character = undefined;
+      return;
+    }
+    const found = DUMMY_CHARACTERS.find((user) => user.name === value);
+    if (found) {
+      this.character = found;
+      this.playerName = this.character.player;
+    } else {
+      this.character = undefined;
+    }
   }
 
   @Output() deleteChar = new EventEmitter<string>();
   onDelete(name: string) {
+    this.character = undefined;
     this.deleteChar.emit(name);
   }
 

@@ -7,10 +7,10 @@ import { Character } from '../character.model';
   styleUrl: './sheet.css',
 })
 export class Sheet {
-  @Input({ required: true }) Name!: string;
   @Input({ required: true }) character!: Character;
   @Output() deleteSheet = new EventEmitter<string>();
   deleteCharacter() {
-    this.deleteSheet.emit(this.Name);
+    if (!this.character) return;
+    this.deleteSheet.emit(this.character.name);
   }
 }
