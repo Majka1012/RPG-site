@@ -1,14 +1,22 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Character } from '../character.model';
+import { FormsModule } from '@angular/forms';
 @Component({
-  selector: 'app-add-character',
-  imports: [],
-  templateUrl: './add-character.html',
-  styleUrl: './add-character.css',
+  selector: 'app-new-character',
+  imports: [FormsModule],
+  templateUrl: './new-character.html',
+  styleUrl: './new-character.css',
 })
 export class AddCharacter {
-  @Output() newCharacterOut = new EventEmitter<Character>();
+  checkStat(input: HTMLInputElement): boolean {
+    if (!input.value || Number(input.value) < 0 || Number(input.value) > 100) {
+      return true;
+    } else {
+      return false;
+    }
+  }
   @Input({ required: true }) player!: string;
+  @Output() createdCharacter = new EventEmitter<Character>();
   createCharacter(
     nameInput: HTMLInputElement,
     jobInput: HTMLInputElement,
@@ -27,29 +35,18 @@ export class AddCharacter {
       !nameInput.value ||
       !this.player ||
       !jobInput.value ||
-      Number(ageInput.value) < 0 ||
-      Number(ageInput.value) > 100 ||
-      Number(strInput.value) < 0 ||
-      Number(strInput.value) > 100 ||
-      Number(conInput.value) < 0 ||
-      Number(conInput.value) > 100 ||
-      Number(sizInput.value) < 0 ||
-      Number(sizInput.value) > 100 ||
-      Number(dexInput.value) < 0 ||
-      Number(dexInput.value) > 100 ||
-      Number(appInput.value) < 0 ||
-      Number(appInput.value) > 100 ||
-      Number(intInput.value) < 0 ||
-      Number(intInput.value) > 100 ||
-      Number(powInput.value) < 0 ||
-      Number(powInput.value) > 100 ||
-      Number(eduInput.value) < 0 ||
-      Number(eduInput.value) > 100 ||
-      Number(speedInput.value) < 0 ||
-      Number(speedInput.value) > 100
+      this.checkStat(ageInput) ||
+      this.checkStat(strInput) ||
+      this.checkStat(conInput) ||
+      this.checkStat(sizInput) ||
+      this.checkStat(dexInput) ||
+      this.checkStat(appInput) ||
+      this.checkStat(intInput) ||
+      this.checkStat(powInput) ||
+      this.checkStat(eduInput) ||
+      this.checkStat(speedInput)
     ) {
-      alert('BŁEDNE DANE!');
-      console.log('błąd');
+      alert('Error! Please check if your data is correct!');
     } else {
       const newCharacter: Character = {
         name: nameInput.value,
@@ -68,8 +65,12 @@ export class AddCharacter {
           { statName: 'speed', value: Number(speedInput.value) },
         ],
       };
-      console.log(newCharacter);
-      this.newCharacterOut.emit(newCharacter);
+      this.createdCharacter.emit(newCharacter);
     }
+  }
+  @Output() cancel = new EventEmitter<void>();
+
+  cancelCreation() {
+    this.cancel.emit();
   }
 }

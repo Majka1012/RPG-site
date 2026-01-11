@@ -3,7 +3,7 @@ import { DUMMY_CHARACTERS } from '../dummy-characters';
 
 import { Character } from './character.model';
 import { Sheet } from './sheet/sheet';
-import { AddCharacter } from './add-character/add-character';
+import { AddCharacter } from './new-character/new-character';
 @Component({
   selector: 'app-character',
   imports: [Sheet, AddCharacter],
@@ -15,7 +15,14 @@ export class CharacterComponent {
   _name!: string;
   character!: Character;
 
-  addBtnClick() {}
+  showAddCharacter = false;
+
+  addBtnClick() {
+    this.showAddCharacter = true;
+  }
+  onCharacterCreated(character: Character) {
+    this.showAddCharacter = false;
+  }
   // character = DUMMY_CHARACTERS.find((user) => user.name === this.Name);
   @Input()
   set Name(value: string) {
@@ -26,5 +33,9 @@ export class CharacterComponent {
   @Output() deleteChar = new EventEmitter<string>();
   onDelete(name: string) {
     this.deleteChar.emit(name);
+  }
+
+  cancelCreation() {
+    this.showAddCharacter = false;
   }
 }

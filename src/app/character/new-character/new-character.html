@@ -1,0 +1,56 @@
+<div class="backdrop" (click)="cancelCreation()"></div>
+<dialog open>
+  <form (ngSubmit)="createCharacter(Name, Job, Age, Str, Con, Siz, Dex, App, Int, Pow, Edu, Speed)">
+    <p>
+      <label for="nameCh">Name: </label>
+      <input type="text" id="nameCh" #Name value="John" />
+    </p>
+    <p>
+      <label for="ageCh">Age: </label>
+      <input type="number" id="ageCh" #Age value="32" />
+    </p>
+    <p>
+      <label for="jobCh">Job: </label>
+      <input type="text" id="jobCh" #Job value="Detective" />
+    </p>
+    <p>
+      <label for="strStat">Strength: </label>
+      <input type="number" id="strStat" #Str value="60" />
+    </p>
+    <p>
+      <label for="conStat">Constitution: </label>
+      <input type="number" id="conStat" #Con value="60" />
+    </p>
+    <p>
+      <label for="sizStat">Size: </label>
+      <input type="number" id="sizStat" #Siz value="60" />
+    </p>
+    <p>
+      <label for="dexStat">Dexterity: </label>
+      <input type="number" id="dexStat" #Dex value="60" />
+    </p>
+    <p>
+      <label for="appStat">Appearance: </label>
+      <input type="number" id="appStat" #App value="60" />
+    </p>
+    <p>
+      <label for="intStat">Intelligence: </label>
+      <input type="number" id="intStat" #Int value="60" />
+    </p>
+    <p>
+      <label for="powStat">Power: </label>
+      <input type="number" id="powStat" #Pow value="60" />
+    </p>
+    <p>
+      <label for="eduStat">Education: </label>
+      <input type="number" id="eduStat" #Edu value="60" />
+    </p>
+
+    <p>
+      <label for="speedStat">Speed: </label>
+      <input type="number" id="speedStat" #Speed value="60" />
+    </p>
+    <button type="button" (click)="cancelCreation()">Cancel</button>
+    <button type="submit">Add Character!</button>
+  </form>
+</dialog>
