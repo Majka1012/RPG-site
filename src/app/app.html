@@ -19,12 +19,11 @@
     <!-- <app-character *ngIf="selectedUser; else fallback" ; [Name]="selectedUser!.name" /> -->
     <app-character
       [PlayerId]="selectedUser.id"
-      [Name]="selectedUser.character"
+      [Name]="selectedUser.id"
       (deleteChar)="deleteCharacter($event)"
       (addChar)="addCharacter($event)"
     />
-
-    }@else {
+    } @else {
     <!-- <ng-template #fallback> -->
     <p id="fallback">Select a user to see their character!</p>
     <!-- </ng-template> -->

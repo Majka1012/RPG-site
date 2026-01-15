@@ -20,17 +20,18 @@ export class App {
   get selectedUser() {
     return Helper.getUserById(this.selectedUserId!);
   }
-
   showCharacter(id: string) {
     this.selectedUserId = id;
   }
   deleteCharacter(name: string) {
     Helper.deleteCharacter(name);
+    this.selectedUserId = this.selectedUserId;
+
+    this.selectedUser;
   }
   addCharacter(character: Character) {
     Helper.addCharacter(character);
-    // console.log('ADDING CHARACTER');
-    // this.selectedUserId = DUMMY_USERS.find((user) => user.name === character.name)?.id;
-    // this.selectedUser;
+    this.selectedUserId = character.playerId;
+    this.selectedUser;
   }
 }

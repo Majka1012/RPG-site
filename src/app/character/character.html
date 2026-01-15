@@ -8,9 +8,9 @@
     </menu>
   </header>
   <div id="character">
-    @if (character) {
-    <app-sheet [character]="character" (deleteSheet)="onDelete($event)" />
-    } @if (showAddCharacter){<app-new-character
+    @if (character) { @for (char of character; track $index) {
+    <app-sheet [character]="char" (deleteSheet)="onDelete($event)" />
+    } } @if (showAddCharacter){<app-new-character
       [player]="playerName"
       (createdCharacter)="onCharacterCreated($event)"
       (cancel)="cancelCreation()"

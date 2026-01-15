@@ -32,6 +32,7 @@ export class AddCharacter {
   speedInput = 50;
   createCharacter() {
     // console.log(Helper.getUserByName(this.player)!.id);
+    console.log(this.nameInput, this.player);
 
     if (
       !this.nameInput ||
@@ -49,11 +50,11 @@ export class AddCharacter {
       this.checkStat(this.speedInput)
     ) {
       alert('Error! Please check if your data is correct!');
-      console.log(this.nameInput, this.player);
+      // console.log(this.nameInput, this.player);
     } else {
       const newCharacter: Character = {
         name: this.nameInput,
-        playerId: Helper.getUserByName(this.player)!.id,
+        playerId: this.player,
         job: this.jobInput,
         age: this.ageInput,
         stats: [

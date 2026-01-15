@@ -1,5 +1,4 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
-// import { DUMMY_CHARACTERS } from '../dummy-characters';
 import { Helper } from '../helper';
 import { Character } from './character.model';
 import { Sheet } from './sheet/sheet';
@@ -11,51 +10,47 @@ import { AddCharacter } from './new-character/new-character';
   styleUrl: './character.css',
 })
 export class CharacterComponent {
-  // @Input() Name!: string;
   playerName!: string;
-  character?: Character;
+  character?: Character[];
 
   showAddCharacter = false;
+  private loadCharacters() {
+    this.character = Helper.getCharactersByPlayer(this.PlayerId) ?? [];
+  }
 
   addBtnClick() {
     this.showAddCharacter = true;
   }
-
   @Output() addChar = new EventEmitter<Character>();
 
   onCharacterCreated(character: Character) {
-    // if (!this.playerName)throw(Error("WRONG"))
     this.showAddCharacter = false;
     this.addChar.emit(character);
-    // console.log('EMITTED CHARACTER');
+    this.loadCharacters();
   }
   @Input({ required: true }) PlayerId!: string;
   @Input()
   set Name(value: string) {
-    // console.log(Helper.getUser(this.PlayerId));
-    if (this.PlayerId) {
-      this.playerName = Helper.getUserById(this.PlayerId)!.name;
-    } else throw Error('PLAYER ID IS MISSING OR WRONG');
-    if (!value) {
-      this.character = undefined;
-      return;
-    }
-    // const found = DUMMY_CHARACTERS.find((user) => user.name === value);
-    const found = Helper.getCharacter(value);
-    // console.log(value);
+    this.playerName = value;
+    let charactersFound: Character[] | undefined;
+    charactersFound = Helper.getCharactersByPlayer(value);
 
-    if (found) {
-      this.character = found;
-      // this.playerName = Helper.getUser(this.character.playerId)!.name;
-      // console.log(this.playerName);
-    } else {
-      this.character = undefined;
+    if (charactersFound) {
+      this.character = charactersFound;
+      console.log(this.character);
     }
   }
+
   @Output() deleteChar = new EventEmitter<string>();
   onDelete(name: string) {
-    this.character = undefined;
-    this.deleteChar.emit(name);
+    if (this.character) {
+      this.character.forEach((char, index) => {
+        if (char.name === name) {
+          this.deleteChar.emit(name);
+        }
+      });
+    }
+    this.loadCharacters();
   }
   cancelCreation() {
     this.showAddCharacter = false;

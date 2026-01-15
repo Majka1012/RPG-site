@@ -9,8 +9,11 @@ export class Helper {
     return DUMMY_USERS.find((user) => user.name === name);
   }
 
-  static getCharacter(name: string) {
-    return DUMMY_CHARACTERS.find((user) => user.name === name);
+  static getCharacter(name: string): Character | undefined {
+    return DUMMY_CHARACTERS.find((char) => char.name === name);
+  }
+  static getCharactersByPlayer(id: string): Character[] | undefined {
+    return DUMMY_CHARACTERS.filter((char) => char.playerId === id);
   }
 
   static addCharacter(character: Character) {
@@ -23,9 +26,9 @@ export class Helper {
   static deleteCharacter(name: string) {
     const indx = DUMMY_CHARACTERS.findIndex((char) => char.name === name);
     if (indx >= 0) {
-      DUMMY_CHARACTERS.splice(indx, indx);
-      //   console.log('SPLICED');
-      //   console.log(DUMMY_CHARACTERS);
+      DUMMY_CHARACTERS.splice(indx, 1);
+      // console.log('DELETE 4 ' + name);
+      console.log(DUMMY_CHARACTERS);
     }
   }
 }
