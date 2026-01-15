@@ -2,7 +2,7 @@
 
 <main>
   <ul>
-    @for(user of users;track user.id){
+    @for(user of DUMMY_USERS;track user.id){
     <!-- <li *ngFor="let user of users"> -->
     <li>
       <app-user
@@ -17,7 +17,12 @@
   <div>
     @if (selectedUser) {
     <!-- <app-character *ngIf="selectedUser; else fallback" ; [Name]="selectedUser!.name" /> -->
-    <app-character [Name]="selectedUser.character" (deleteChar)="deleteCharacter($event)" />
+    <app-character
+      [PlayerId]="selectedUser.id"
+      [Name]="selectedUser.character"
+      (deleteChar)="deleteCharacter($event)"
+      (addChar)="addCharacter($event)"
+    />
 
     }@else {
     <!-- <ng-template #fallback> -->

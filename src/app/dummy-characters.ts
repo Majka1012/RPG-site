@@ -1,7 +1,8 @@
 export const DUMMY_CHARACTERS = [
   {
     name: 'Celest',
-    player: 'Maja',
+    // player: 'Maja',
+    playerId: 'u1',
     job: 'photograph',
     age: 28,
     stats: [
@@ -17,25 +18,9 @@ export const DUMMY_CHARACTERS = [
     ],
   },
   {
-    name: 'Marie',
-    player: 'Marta',
-    job: 'nurse',
-    age: 24,
-    stats: [
-      { statName: 'str', value: 50 },
-      { statName: 'con', value: 65 },
-      { statName: 'siz', value: 45 },
-      { statName: 'dex', value: 75 },
-      { statName: 'app', value: 55 },
-      { statName: 'int', value: 75 },
-      { statName: 'pow', value: 70 },
-      { statName: 'edu', value: 85 },
-      { statName: 'speed', value: 7 },
-    ],
-  },
-  {
     name: 'Ricky',
-    player: 'Daniel',
+    // player: 'Daniel',
+    playerId: 'u2',
     job: 'security',
     age: 32,
     stats: [
@@ -51,10 +36,29 @@ export const DUMMY_CHARACTERS = [
     ],
   },
   {
-    name: 'Leopold',
-    player: 'Zbychu',
-    job: 'archeology',
-    age: 36,
+    name: 'Marie',
+    // player: 'Marta',
+    playerId: 'u3',
+    job: 'nurse',
+    age: 24,
+    stats: [
+      { statName: 'str', value: 50 },
+      { statName: 'con', value: 65 },
+      { statName: 'siz', value: 45 },
+      { statName: 'dex', value: 75 },
+      { statName: 'app', value: 55 },
+      { statName: 'int', value: 75 },
+      { statName: 'pow', value: 70 },
+      { statName: 'edu', value: 85 },
+      { statName: 'speed', value: 7 },
+    ],
+  },
+  {
+    name: 'John',
+    // player: 'Janek',
+    playerId: 'u4',
+    job: 'Artist',
+    age: 27,
     stats: [
       { statName: 'str', value: 70 },
       { statName: 'con', value: 50 },
@@ -68,10 +72,11 @@ export const DUMMY_CHARACTERS = [
     ],
   },
   {
-    name: 'John',
-    player: 'Janek',
-    job: '-',
-    age: 27,
+    name: 'Leopold',
+    // player: 'Zbychu',
+    playerId: 'u5',
+    job: 'archeology',
+    age: 36,
     stats: [
       { statName: 'str', value: 70 },
       { statName: 'con', value: 50 },

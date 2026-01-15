@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output, signal } from '@angular/core';
 import { Character } from '../character.model';
 import { FormsModule } from '@angular/forms';
+import { Helper } from '../../helper';
 @Component({
   selector: 'app-new-character',
   imports: [FormsModule],
@@ -17,7 +18,7 @@ export class AddCharacter {
   }
   @Input({ required: true }) player!: string;
   @Output() createdCharacter = new EventEmitter<Character>();
-  nameInput = 'John';
+  nameInput = 'Johnny';
   jobInput = 'Detective';
   ageInput = 32;
   strInput = 50;
@@ -30,7 +31,8 @@ export class AddCharacter {
   eduInput = 50;
   speedInput = 50;
   createCharacter() {
-    console.log(this.player);
+    // console.log(Helper.getUserByName(this.player)!.id);
+
     if (
       !this.nameInput ||
       !this.player ||
@@ -47,10 +49,11 @@ export class AddCharacter {
       this.checkStat(this.speedInput)
     ) {
       alert('Error! Please check if your data is correct!');
+      console.log(this.nameInput, this.player);
     } else {
       const newCharacter: Character = {
         name: this.nameInput,
-        player: this.player,
+        playerId: Helper.getUserByName(this.player)!.id,
         job: this.jobInput,
         age: this.ageInput,
         stats: [

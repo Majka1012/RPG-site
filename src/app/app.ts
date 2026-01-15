@@ -3,6 +3,9 @@ import { HeaderComponent } from './header/header';
 import { UserComponent } from './user/user';
 import { DUMMY_USERS } from './dummy-users';
 import { CharacterComponent } from './character/character';
+import { Helper } from './helper';
+import { Character } from './character/character.model';
+// import { DUMMY_CHARACTERS } from './dummy-characters';
 // import { NgFor, NgIf } from '@angular/common';
 
 @Component({
@@ -12,19 +15,22 @@ import { CharacterComponent } from './character/character';
   styleUrl: './app.css',
 })
 export class App {
-  users = DUMMY_USERS;
+  DUMMY_USERS = DUMMY_USERS;
   selectedUserId?: string;
   get selectedUser() {
-    return DUMMY_USERS.find((user) => user.id === this.selectedUserId);
+    return Helper.getUserById(this.selectedUserId!);
   }
 
   showCharacter(id: string) {
     this.selectedUserId = id;
   }
   deleteCharacter(name: string) {
-    const user = this.users.find((u) => u.character === name);
-    if (!user) return;
-
-    user.character = '';
+    Helper.deleteCharacter(name);
+  }
+  addCharacter(character: Character) {
+    Helper.addCharacter(character);
+    // console.log('ADDING CHARACTER');
+    // this.selectedUserId = DUMMY_USERS.find((user) => user.name === character.name)?.id;
+    // this.selectedUser;
   }
 }
