@@ -22,6 +22,8 @@ header {
 }
 p {
   margin: 0rem;
+  font-size: 1.5rem;
+  padding-left: 1rem;
 }
 
 h2 {
@@ -39,7 +41,8 @@ menu {
 menu button {
   font: inherit;
   cursor: pointer;
-  background-color: #82629d;
+  color: aliceblue;
+  background-color: #74419e;
   border-radius: 4px;
   border: none;
   padding: 0.35rem 0.8rem;

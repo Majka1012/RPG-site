@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { HeaderComponent } from './header/header';
 import { UserComponent } from './user/user';
 import { DUMMY_USERS } from './dummy-users';
 import { CharacterComponent } from './character/character';
-import { Helper } from './helper';
-import { Character } from './character/character.model';
+import { DummyService } from './dummy.service';
+// import { Character } from './character/character.model';
 // import { DUMMY_CHARACTERS } from './dummy-characters';
 // import { NgFor, NgIf } from '@angular/common';
 
@@ -15,23 +15,21 @@ import { Character } from './character/character.model';
   styleUrl: './app.css',
 })
 export class App {
+  // constructor(private dummyService: DummyService) {}
+  private dummyService = inject(DummyService);
+
   DUMMY_USERS = DUMMY_USERS;
   selectedUserId?: string;
   get selectedUser() {
-    return Helper.getUserById(this.selectedUserId!);
+    return this.dummyService.getUserById(this.selectedUserId!);
   }
   showCharacter(id: string) {
     this.selectedUserId = id;
   }
   deleteCharacter(name: string) {
-    Helper.deleteCharacter(name);
+    this.dummyService.deleteCharacter(name);
     this.selectedUserId = this.selectedUserId;
 
-    this.selectedUser;
-  }
-  addCharacter(character: Character) {
-    Helper.addCharacter(character);
-    this.selectedUserId = character.playerId;
     this.selectedUser;
   }
 }

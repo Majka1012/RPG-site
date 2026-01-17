@@ -1,7 +1,6 @@
 import { Component, EventEmitter, Input, Output, signal } from '@angular/core';
 import { Character } from '../character.model';
 import { FormsModule } from '@angular/forms';
-import { Helper } from '../../helper';
 @Component({
   selector: 'app-new-character',
   imports: [FormsModule],
@@ -32,7 +31,7 @@ export class AddCharacter {
   speedInput = 50;
   createCharacter() {
     // console.log(Helper.getUserByName(this.player)!.id);
-    console.log(this.nameInput, this.player);
+    // console.log(this.nameInput, this.player);
 
     if (
       !this.nameInput ||
