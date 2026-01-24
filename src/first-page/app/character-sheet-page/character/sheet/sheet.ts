@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { Character } from '../character.model';
-import { DummyService } from '../../dummy.service';
+import { DummyService } from '../../../dummy.service';
 
 @Component({
   selector: 'app-sheet',

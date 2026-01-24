@@ -1,6 +1,6 @@
 import { DUMMY_USERS } from './dummy-users';
 import { DUMMY_CHARACTERS } from './dummy-characters';
-import { Character } from './character/character.model';
+import { Character } from './character-sheet-page/character/character.model';
 import { Injectable } from '@angular/core';
 
 @Injectable({ providedIn: 'root' })

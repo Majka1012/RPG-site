@@ -1,20 +1,19 @@
 import { Component, inject } from '@angular/core';
-import { HeaderComponent } from './header/header';
 import { UserComponent } from './user/user';
-import { DUMMY_USERS } from './dummy-users';
+import { DUMMY_USERS } from '../dummy-users';
 import { CharacterComponent } from './character/character';
-import { DummyService } from './dummy.service';
+import { DummyService } from '../dummy.service';
 // import { Character } from './character/character.model';
 // import { DUMMY_CHARACTERS } from './dummy-characters';
 // import { NgFor, NgIf } from '@angular/common';
 
 @Component({
-  selector: 'app-root',
-  imports: [HeaderComponent, UserComponent, CharacterComponent],
-  templateUrl: './app.html',
-  styleUrl: './app.css',
+  selector: 'app-page',
+  imports: [UserComponent, CharacterComponent],
+  templateUrl: './page.html',
+  styleUrl: './page.css',
 })
-export class App {
+export class PageComponent {
   // constructor(private dummyService: DummyService) {}
   private dummyService = inject(DummyService);
 

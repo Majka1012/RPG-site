@@ -1,5 +1,5 @@
 import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
-import { DummyService } from '../dummy.service';
+import { DummyService } from '../../dummy.service';
 import { Character } from './character.model';
 import { Sheet } from './sheet/sheet';
 import { AddCharacter } from './new-character/new-character';
