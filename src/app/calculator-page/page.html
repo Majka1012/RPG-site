@@ -3,12 +3,16 @@
   <div class="actions">
     <button (click)="addEntity()">Add enemy</button>
     <button (click)="addPlayer()">Add player</button>
-    <button>Delete Entity</button>
+    <button (click)="clearEntities()">Clear all</button>
   </div>
   <div class="entity-grid">
     @if (Entities) {
-      @for (ent of Entities; track $index) {
-        <app-entity [entity]="ent"></app-entity>
+      @for (ent of Entities; track ent.id) {
+        <app-entity
+          [entity]="ent"
+          (hasGun)="hasGun($event)"
+          (delete)="deleteEntity($event)"
+        ></app-entity>
       }
     }
   </div>

@@ -3,6 +3,7 @@
     class="entity-card"
     [class.entity-card-player]="entity.entityType === 'player'"
     [class.entity-card-enemy]="entity.entityType === 'enemy'"
+    (click)="deleteEntity()"
   >
     <p>{{ entity.Name }}</p>
     <p>DEX: {{ entity.Dex }}</p>
@@ -10,7 +11,7 @@
     <p>Player: {{ entity.Player }}</p>
     <label>
       Is using gun?
-      <input type="checkbox" />
+      <input type="checkbox" (change)="hasGUN($event.target.checked)" />
     </label>
   </div>
 }

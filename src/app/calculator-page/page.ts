@@ -16,6 +16,15 @@ export class CalcPageComponent {
 
   Entities?: EntitesType[];
 
+  hasGun(gun: { id: string; value: boolean }) {
+    if (gun.value === true && this.Entities) {
+      this.Entities.find((ent) => ent.id === gun.id)!.Dex += 50;
+    } else if (this.Entities) {
+      this.Entities.find((ent) => ent.id === gun.id)!.Dex -= 50;
+    }
+    this.renderEntities();
+  }
+
   addPlayer() {
     this.showAddPLayer = true;
   }
@@ -31,7 +40,11 @@ export class CalcPageComponent {
       return b.Dex - a.Dex;
     });
   }
-
+  deleteEntity(id: string) {
+    if (this.Entities) {
+      this.Entities = this.Entities.filter((enti) => enti.id !== id);
+    }
+  }
   newEntity(enti: EntitesType) {
     if (!this.Entities) {
       this.Entities = [];
@@ -54,5 +67,8 @@ export class CalcPageComponent {
       alert('This character is already selceted');
     }
   }
-  deleteEntity() {}
+  clearEntities() {
+    this.Entities = [];
+    this.renderEntities();
+  }
 }

@@ -5,5 +5,6 @@ export interface EntityModel {
   Player: string;
 }
 export interface EntitesType extends EntityModel {
-  entityType: string;
+  id: string;
+  entityType: 'player' | 'enemy';
 }

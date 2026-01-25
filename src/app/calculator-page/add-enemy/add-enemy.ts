@@ -25,6 +25,7 @@ export class AddEnemy {
       alert('Error! Please check if your data is correct!');
     } else {
       this.newEnemy = {
+        id: crypto.randomUUID(),
         Name: this.nameEnemy,
         Dex: this.dexInput,
         HP: this.hpEnemy,

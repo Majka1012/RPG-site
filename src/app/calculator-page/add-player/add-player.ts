@@ -30,6 +30,7 @@ export class AddPlayer {
     this.player = this.dummyService.getUserById(this.char.playerId)!.name;
     this.hp = this.char?.stats.find((stat: any) => stat.statName === 'con')?.value;
     this.entity = {
+      id: this.name + crypto.randomUUID(),
       Name: this.name,
       Dex: this.dex,
       HP: this.hp,
