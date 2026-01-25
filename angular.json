@@ -11,26 +11,26 @@
       "projectType": "application",
       "schematics": {},
       "root": "",
-      "sourceRoot": "src/first-page",
+      "sourceRoot": "src",
       "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular/build:application",
           "options": {
-            "browser": "src/first-page/main.ts",
+            "browser": "src/main.ts",
             "polyfills": [
               "zone.js"
             ],
             "tsConfig": "tsconfig.app.json",
             "assets": [
-              "src/first-page/assets",
+              "src/assets",
               {
                 "glob": "**/*",
                 "input": "public"
               }
             ],
             "styles": [
-              "src/first-page/styles.css"
+              "src/styles.css"
             ]
           },
           "configurations": {

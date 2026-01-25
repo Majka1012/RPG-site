@@ -1,0 +1,21 @@
+<div class="backdrop" (click)="cancelCreation()"></div>
+<dialog open>
+  <form (ngSubmit)="createEnemy()">
+    <p>
+      <label for="nameEnemy">Name: </label>
+      <input type="text" id="nameEnemy" [(ngModel)]="nameEnemy" name="nameEnemy" />
+    </p>
+
+    <p>
+      <label for="dexEnemy">Dexterity: </label>
+      <input type="number" id="dexEnemy" [(ngModel)]="dexInput" name="dexEnemy" />
+    </p>
+
+    <p>
+      <label for="hpEnemy">HP: </label>
+      <input type="text" id="hpEnemy" name="hpEnemy" [(ngModel)]="hpEnemy" />
+    </p>
+    <button type="button" (click)="cancelCreation()">Cancel</button>
+    <button type="submit">Add New Enemy!</button>
+  </form>
+</dialog>

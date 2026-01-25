@@ -1,0 +1,24 @@
+<section class="page">
+  <h2>Simple calc for battle in Call of Cthulhu <i class="fa-solid fa-info"></i></h2>
+  <div class="actions">
+    <button (click)="addEntity()">Add enemy</button>
+    <button (click)="addPlayer()">Add player</button>
+    <button>Delete Entity</button>
+  </div>
+  <div class="entity-grid">
+    @if (Entities) {
+      @for (ent of Entities; track $index) {
+        <app-entity [entity]="ent"></app-entity>
+      }
+    }
+  </div>
+  @if (showAddEnemy) {
+    <app-add-enemy
+      (cancel)="cancelCreation()"
+      (createdCharacter)="newEntity($event)"
+    ></app-add-enemy>
+  }
+  @if (showAddPLayer) {
+    <app-add-player (cancel)="cancelCreation()" (add)="newEntity($event)"></app-add-player>
+  }
+</section>

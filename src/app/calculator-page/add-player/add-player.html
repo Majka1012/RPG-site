@@ -1,0 +1,11 @@
+<div class="backdrop" (click)="cancelCreation()"></div>
+<dialog open>
+  <p>Select your Character</p>
+  <select #character>
+    @for (char of characters; track $index) {
+      <option>{{ char.name }}</option>
+    }
+  </select>
+  <button type="button" (click)="cancelCreation()">Cancel</button>
+  <button type="button" class="addBtn" (click)="addPlayer(character.value)">Add</button>
+</dialog>

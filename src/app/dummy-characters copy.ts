@@ -64,7 +64,7 @@ export const DUMMY_CHARACTERS = [
       { statName: 'int', value: 75 },
       { statName: 'pow', value: 49 },
       { statName: 'edu', value: 82 },
-      { statName: 'speed', value: 9 },
+      { statName: 'speed', value: 8 },
     ],
   },
   {

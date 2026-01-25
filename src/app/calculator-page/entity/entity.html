@@ -1,0 +1,16 @@
+@if (entity) {
+  <div
+    class="entity-card"
+    [class.entity-card-player]="entity.entityType === 'player'"
+    [class.entity-card-enemy]="entity.entityType === 'enemy'"
+  >
+    <p>{{ entity.Name }}</p>
+    <p>DEX: {{ entity.Dex }}</p>
+    <p>HP: {{ entity.HP }}</p>
+    <p>Player: {{ entity.Player }}</p>
+    <label>
+      Is using gun?
+      <input type="checkbox" />
+    </label>
+  </div>
+}

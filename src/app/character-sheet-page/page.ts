@@ -13,7 +13,7 @@ import { DummyService } from '../dummy.service';
   templateUrl: './page.html',
   styleUrl: './page.css',
 })
-export class PageComponent {
+export class CharPageComponent {
   // constructor(private dummyService: DummyService) {}
   private dummyService = inject(DummyService);
 
