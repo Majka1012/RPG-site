@@ -4,6 +4,8 @@
     <button (click)="addEntity()">Add enemy</button>
     <button (click)="addPlayer()">Add player</button>
     <button (click)="clearEntities()">Clear all</button>
+    <button (click)="saveEntieties()">Save current list</button>
+    <button id="listBtn" (click)="saveEntieties()">Choose from list</button>
   </div>
   <div class="entity-grid">
     @if (Entities) {

@@ -14,7 +14,9 @@ export class CalcPageComponent {
   showAddEnemy = false;
   showAddPLayer = false;
 
-  Entities?: EntitesType[];
+  Entities: EntitesType[] = [];
+  listIndex = 0;
+  listOfEntities: { entities: EntitesType[]; id: string }[] = [];
 
   hasGun(gun: { id: string; value: boolean }) {
     if (gun.value === true && this.Entities) {
@@ -46,9 +48,6 @@ export class CalcPageComponent {
     }
   }
   newEntity(enti: EntitesType) {
-    if (!this.Entities) {
-      this.Entities = [];
-    }
     let unique = true;
     for (const entity of this.Entities) {
       if (
@@ -70,5 +69,13 @@ export class CalcPageComponent {
   clearEntities() {
     this.Entities = [];
     this.renderEntities();
+  }
+  saveEntieties() {
+    if (this.Entities.length > 0) {
+      this.listOfEntities[this.listIndex] = { entities: this.Entities, id: crypto.randomUUID() };
+      console.log(this.listOfEntities);
+      alert('Saved!');
+      this.listIndex++;
+    }
   }
 }
