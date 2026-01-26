@@ -1,35 +1,125 @@
 .entity-card {
+  width: 170px;
+  min-height: 180px;
+  padding: 0.8rem;
   border-radius: 1rem;
-  padding: 1rem;
-  color: white;
 
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  min-width: 130px;
-  max-width: 180px;
-  justify-content: center;
-  align-items: center;
+  gap: 0.4rem;
+
+  color: white;
   text-align: center;
+
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
 }
-p:first-child {
-  font-size: 1.5rem;
+
+.entity-header {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+.entity-name {
+  font-size: 1.3rem;
+  font-weight: 600;
+  pointer-events: none;
+}
+
+.delete-btn {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: none;
+
+  background: rgba(0, 0, 0, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+}
+
+.delete-btn i {
+  color: #ffb3b3;
+  font-size: 0.8rem;
+}
+
 .entity-card-player {
-  color: white;
-
-  background-color: #ca2fdb;
+  background-color: #b149bd;
 }
-.entity-card-enemy {
-  color: white;
 
-  background-color: #610d23;
+.entity-card-enemy {
+  background-color: #b22248;
 }
 
 p {
-  margin: 0rem;
-  padding: 0.1rem;
+  margin: 0;
+  font-size: 0.85rem;
 }
-label {
-  padding: 0.1rem;
+.gun-toggle {
+  margin-top: 0.4rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+}
+/* HIDE NATIVE CHECKBOX */
+.gun-toggle input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* CUSTOM BOX */
+.custom-check {
+  width: 18px;
+  height: 18px;
+  border-radius: 5px;
+  display: block;
+  background: rgba(255, 255, 255, 0.25);
+  border: 2px solid rgba(255, 255, 255, 0.6);
+
+  align-items: center;
+  justify-content: center;
+
+  transition: all 0.2s ease;
+}
+
+/* CHECK MARK */
+.custom-check::after {
+  content: '✓';
+  font-size: 13px;
+  color: white;
+  opacity: 0;
+  transform: scale(0.5);
+  transition: all 0.15s ease;
+}
+
+/* CHECKED STATE */
+.gun-toggle input:checked + .custom-check {
+  background: rgba(0, 0, 0, 0.35);
+  border-color: white;
+}
+
+.gun-toggle input:checked + .custom-check::after {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* HOVER / FOCUS */
+.gun-toggle:hover .custom-check {
+  transform: scale(1.05);
+}
+
+.gun-toggle input:focus-visible + .custom-check {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
 }

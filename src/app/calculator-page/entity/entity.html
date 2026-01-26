@@ -3,15 +3,23 @@
     class="entity-card"
     [class.entity-card-player]="entity.entityType === 'player'"
     [class.entity-card-enemy]="entity.entityType === 'enemy'"
-    (click)="deleteEntity()"
   >
-    <p>{{ entity.Name }}</p>
+    <div class="entity-header">
+      <span class="entity-name">{{ entity.Name }}</span>
+
+      <button class="delete-btn" (click)="deleteEntity()" aria-label="Delete entity">
+        <i class="fa-solid fa-trash"></i>
+      </button>
+    </div>
+
     <p>DEX: {{ entity.Dex }}</p>
     <p>HP: {{ entity.HP }}</p>
     <p>Player: {{ entity.Player }}</p>
-    <label>
-      Is using gun?
+
+    <label class="gun-toggle">
+      <span>Gun</span>
       <input type="checkbox" (change)="hasGUN($event.target.checked)" />
+      <span class="custom-check"></span>
     </label>
   </div>
 }
