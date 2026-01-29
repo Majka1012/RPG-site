@@ -9,7 +9,7 @@
 
 dialog {
   width: 90%;
-  max-width: 30rem;
+  max-width: 50rem;
   background-color: #433352;
   border-radius: 6px;
   border: none;
@@ -22,13 +22,6 @@ dialog {
 h2 {
   margin: 0;
   color: #d0c2e1;
-}
-
-label {
-  display: block;
-  font-weight: bold;
-  font-size: 0.85rem;
-  color: #ab9ac0;
 }
 
 option {
@@ -45,11 +38,10 @@ button {
   border: none;
   padding: 0.35rem 1.25rem;
   border-radius: 4px;
-  background-color: transparent;
-}
-
-button {
   color: #bdadcf;
+  background-color: #9c73ca;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
 }
 
 button:hover,
@@ -57,24 +49,11 @@ button:active {
   color: #d0c2e1;
 }
 
-.addBtn {
-  background-color: #9c73ca;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-  transition: all 0.3s ease;
-}
-
-.addBtn:hover,
-.addBtn:active {
-  background-color: #895cce;
-  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.3);
-}
-
 @media (min-width: 768px) {
   dialog {
     padding: 2rem;
   }
 }
-
 select {
   padding: 0.5rem;
   border-radius: 0.5rem;

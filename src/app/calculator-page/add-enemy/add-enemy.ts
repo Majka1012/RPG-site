@@ -9,7 +9,7 @@ import { EntitesType } from '../entity/entity.model';
 })
 export class AddEnemy {
   checkStat(input: any): boolean {
-    if (!input || Number(input) < 0 || Number(input) > 100) {
+    if (!input || Number(input) < 0 || Number(input) >= 200) {
       return true;
     } else {
       return false;

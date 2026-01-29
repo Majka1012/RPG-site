@@ -25,9 +25,10 @@ button {
   font-weight: 600;
 }
 
-button:hover {
+.usableBtn:hover {
   background-color: #c843c3;
 }
-#listBtn {
+.unusableBtn {
   background-color: #774e76;
+  cursor: default;
 }

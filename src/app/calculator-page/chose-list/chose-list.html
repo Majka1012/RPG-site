@@ -1,0 +1,15 @@
+<div class="backdrop" (click)="cancel()"></div>
+<dialog open>
+  <h2>Choose from list below</h2>
+  <select>
+    @for (item of list; track item.id) {
+      <option (click)="pickedEntities(item.id)">
+        @for (ent of item.entities; track ent.id) {
+          {{ ent.Name }}
+        }
+      </option>
+    }
+  </select>
+  <button (click)="clear()">Clear list</button>
+  <button (click)="cancel()">Close</button>
+</dialog>

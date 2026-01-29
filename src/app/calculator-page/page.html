@@ -1,11 +1,17 @@
 <section class="page">
-  <h2>Simple calc for battle in Call of Cthulhu <i class="fa-solid fa-info"></i></h2>
+  <h2>Simple calculator for battle in Call of Cthulhu <i class="fa-solid fa-info"></i></h2>
   <div class="actions">
-    <button (click)="addEntity()">Add enemy</button>
-    <button (click)="addPlayer()">Add player</button>
-    <button (click)="clearEntities()">Clear all</button>
-    <button (click)="saveEntieties()">Save current list</button>
-    <button id="listBtn" (click)="saveEntieties()">Choose from list</button>
+    <button class="usableBtn" (click)="addEntity()">Add enemy</button>
+    <button class="usableBtn" (click)="addPlayer()">Add player</button>
+    <button class="usableBtn" (click)="clearEntities()">Clear all</button>
+    <button class="usableBtn" (click)="saveEntieties()">Save current list</button>
+    @if (listOfEntities.length === 0) {
+      <button class="unusableBtn" aria-label="You don't have any saved list">
+        Choose from list
+      </button>
+    } @else {
+      <button class="usableBtn" (click)="chooseFromList()">Choose from list</button>
+    }
   </div>
   <div class="entity-grid">
     @if (Entities) {
@@ -19,12 +25,17 @@
     }
   </div>
   @if (showAddEnemy) {
-    <app-add-enemy
-      (cancel)="cancelCreation()"
-      (createdCharacter)="newEntity($event)"
-    ></app-add-enemy>
+    <app-add-enemy (cancel)="cancel()" (createdCharacter)="newEntity($event)"></app-add-enemy>
   }
   @if (showAddPLayer) {
-    <app-add-player (cancel)="cancelCreation()" (add)="newEntity($event)"></app-add-player>
+    <app-add-player (cancel)="cancel()" (add)="newEntity($event)"></app-add-player>
+  }
+  @if (showEntitieList) {
+    <app-chose-list
+      (canceling)="cancel()"
+      [list]="listOfEntities"
+      (chosen)="savingChosenList($event)"
+      (clearing)="clearingList()"
+    ></app-chose-list>
   }
 </section>
